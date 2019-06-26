@@ -30,16 +30,12 @@ public class Main {
 		String header = csvReader.readLine();
 		String row = csvReader.readLine();
 		while (row != null && !row.isEmpty()) {
-			System.out.println(row);
 			String[] data = row.replaceAll(" ", "").split(",");
 			for (String inputDate : Consts.INPUT_LIST) {
 				revenuesPerMonth.put(inputDate, revenuesPerMonth.get(inputDate)
 						+ revenueCalculationAlgorithm.calculateRevenuePerMonth(inputDate, data));
 				unreservedCapacityPerMonth.put(inputDate, unreservedCapacityPerMonth.get(inputDate)
 						+ unreservedOfficesAlgorithm.calculateUnreservedOfficesCapacityPerMonth(inputDate, data));
-				
-				System.out.println(revenuesPerMonth);
-				System.out.println(unreservedCapacityPerMonth);
 			}
 			row = csvReader.readLine();
 		}

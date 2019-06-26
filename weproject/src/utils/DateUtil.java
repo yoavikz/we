@@ -8,7 +8,7 @@ import java.util.Date;
 
 public class DateUtil {
 
-	public static Date createDate(String stringDate) {
+	public static Date createDateObject(String stringDate) {
 		String[] dateSplitted = stringDate.split("-");
 		Calendar cal = Calendar.getInstance();
 		cal.set(Calendar.YEAR, Integer.parseInt(dateSplitted[0]));

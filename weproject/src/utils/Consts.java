@@ -12,6 +12,7 @@ public abstract class Consts
 	public static final int START_DAY_INDEX = 2;
 	public static final int END_DAY_INDEX = 3;
 	
-	public static final List<String> INPUT_LIST = Arrays.asList("2015-07","2014-09");
+	//Input
+	public static final List<String> INPUT_LIST = Arrays.asList("2014-04","2014-05","2014-06");
 
 }

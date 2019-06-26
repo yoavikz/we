@@ -3,6 +3,7 @@ package weproject;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.time.YearMonth;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -27,18 +28,19 @@ public class Main {
 	private void runMainLogic() throws IOException {
 		RevenueCalculationAlgorithm revenueCalculationAlgorithm = new RevenueCalculationAlgorithm();
 		UnreservedOfficesAlgorithm unreservedOfficesAlgorithm = new UnreservedOfficesAlgorithm();
-		BufferedReader csvReader = new BufferedReader(new FileReader("C:\\workspace\\we\\data.csv"));
+		BufferedReader csvReader = new BufferedReader(new FileReader("C:\\workspace\\we\\data2.csv"));
 		String header = csvReader.readLine();
 		String row = csvReader.readLine();
 		while (row != null && !row.isEmpty()) {
-			String[] data = row.split(",");
-			for (String inputMonth : Consts.INPUT_LIST) {
+			System.out.println(row);
+			String[] data = row.replaceAll(" ","").split(",");
+			for (String inputDate : Consts.INPUT_LIST) {
 				// call first algo and sum
-				revenuesPerMonth.put(inputMonth, revenuesPerMonth.get(inputMonth)
-						+ revenueCalculationAlgorithm.calculateRevenuePerMonth(inputMonth, data));
+				revenuesPerMonth.put(inputDate, revenuesPerMonth.get(inputDate)
+						+ revenueCalculationAlgorithm.calculateRevenuePerMonth(inputDate, data));
 				// call second algo and sum
-				unreservedCapacityPerMonth.put(inputMonth, unreservedCapacityPerMonth.get(inputMonth)
-						+ unreservedOfficesAlgorithm.calculateUnreservedOfficesCapacityPerMonth(inputMonth, data));
+				unreservedCapacityPerMonth.put(inputDate, unreservedCapacityPerMonth.get(inputDate)
+						+ unreservedOfficesAlgorithm.calculateUnreservedOfficesCapacityPerMonth(inputDate, data));
 			}
 			row = csvReader.readLine();
 		}

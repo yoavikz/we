@@ -1,4 +1,4 @@
-package weproject;
+package logics;
 
 public class UnreservedOfficesAlgorithm {
 	public int calculateUnreservedOfficesCapacityPerMonth(String inputDate, String[] dataRow) {

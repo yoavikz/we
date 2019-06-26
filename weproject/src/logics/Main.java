@@ -1,7 +1,8 @@
-package weproject;
+package logics;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.time.YearMonth;
 import java.util.Date;
@@ -25,6 +26,7 @@ public class Main {
 		printOutput();
 	}
 
+	
 	private void runMainLogic() throws IOException {
 		BufferedReader csvReader = new BufferedReader(new FileReader(Consts.INPUT_FILE_PATH));
 		String header = csvReader.readLine();

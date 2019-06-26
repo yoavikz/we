@@ -1,4 +1,4 @@
-package weproject;
+package logics;
 
 import java.util.Date;
 import utils.Consts;

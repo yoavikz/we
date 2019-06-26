@@ -12,5 +12,6 @@ public abstract class Consts {
 
 	// Input properties - user should only change this
 	public static final List<String> INPUT_LIST = Arrays.asList("2013-01", "2013-06", "2014-03", "2014-09", "2015-07");
-	public static final String INPUT_FILE_PATH = "C:\\workspace\\we\\data.csv";
+	public static final String INPUT_FILE_PATH = System.getProperty("user.dir") + "\\data.csv";
+
 }

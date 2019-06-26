@@ -1,4 +1,4 @@
-package weproject;
+package logics;
 
 import java.time.YearMonth;
 import utils.Consts;

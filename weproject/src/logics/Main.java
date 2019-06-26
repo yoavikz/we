@@ -2,15 +2,11 @@ package logics;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.time.YearMonth;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
 import utils.Consts;
-import utils.DateUtil;
 
 public class Main {
 	static Map<String, Integer> revenuesPerMonth = new HashMap<String, Integer>();

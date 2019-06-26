@@ -26,16 +26,20 @@ public class Main {
 	}
 
 	private void runMainLogic() throws IOException {
-		BufferedReader csvReader = new BufferedReader(new FileReader("C:\\workspace\\we\\data2.csv"));
+		BufferedReader csvReader = new BufferedReader(new FileReader(Consts.INPUT_FILE_PATH));
 		String header = csvReader.readLine();
 		String row = csvReader.readLine();
 		while (row != null && !row.isEmpty()) {
+			System.out.println(row);
 			String[] data = row.replaceAll(" ", "").split(",");
 			for (String inputDate : Consts.INPUT_LIST) {
 				revenuesPerMonth.put(inputDate, revenuesPerMonth.get(inputDate)
 						+ revenueCalculationAlgorithm.calculateRevenuePerMonth(inputDate, data));
 				unreservedCapacityPerMonth.put(inputDate, unreservedCapacityPerMonth.get(inputDate)
 						+ unreservedOfficesAlgorithm.calculateUnreservedOfficesCapacityPerMonth(inputDate, data));
+				
+				System.out.println(revenuesPerMonth);
+				System.out.println(unreservedCapacityPerMonth);
 			}
 			row = csvReader.readLine();
 		}
@@ -49,19 +53,10 @@ public class Main {
 	}
 
 	private static void printOutput() {
-		// TODO: Fix this ugly duplicate code, send the map and the required text to
-		// print as method args
-		System.out.println("=====Revenues summary=====\n");
-		for (String month : revenuesPerMonth.keySet()) {
-			System.out.println("The revenue for month " + month + " is " + revenuesPerMonth.get(month) + "$");
+		for (String month : Consts.INPUT_LIST) {
+			System.out.println(month + ": Expected revenue: $ " + revenuesPerMonth.get(month)
+					+ ", expected total capacity of the unreserved offices: " + unreservedCapacityPerMonth.get(month));
 		}
-
-		System.out.println("\n=====Unreserved capacity summary=====\n");
-		for (String month : unreservedCapacityPerMonth.keySet()) {
-			System.out.println(
-					"The unreserved capacity for month " + month + " is " + unreservedCapacityPerMonth.get(month));
-		}
-
 	}
 
 }

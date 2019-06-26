@@ -22,10 +22,6 @@ public class DateUtil {
 		return dateRepresentation;
 	}
 
-	public static int daysBetween(Date d1, Date d2) {
-		return (int) ((d2.getTime() - d1.getTime()) / (1000 * 60 * 60 * 24));
-	}
-
 	public static int numberOfDaysInMonth(int year, int month) {
 		YearMonth yearMonthObject = YearMonth.of(year, month);
 		int daysInMonth = yearMonthObject.lengthOfMonth();
@@ -41,7 +37,7 @@ public class DateUtil {
 		LocalDate localDate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
 		return localDate.getDayOfMonth();
 	}
-	
+
 	public static int getYear(Date date) {
 		LocalDate localDate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
 		return localDate.getYear();
